@@ -29,7 +29,6 @@ func main() {
 		os.Getenv("WSRS_DATABASE_PORT"),
 		os.Getenv("WSRS_DATABASE_NAME"),
 	))
-
 	if err != nil {
 		panic(err)
 	}
@@ -40,10 +39,10 @@ func main() {
 		panic(err)
 	}
 
-	hanler := api.NewHandler(pgstore.New(pool))
+	handler := api.NewHandler(pgstore.New(pool))
 
 	go func() {
-		if err := http.ListenAndServe(":8080", hanler); err != nil {
+		if err := http.ListenAndServe(":8080", handler); err != nil {
 			if !errors.Is(err, http.ErrServerClosed) {
 				panic(err)
 			}
