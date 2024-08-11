@@ -1,7 +1,7 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
-import { getRoomMessages } from "../http/get-room-messages";
 import { Message } from "./message";
+import { getRoomMessages } from "../http/get-room-messages";
 
 export function Messages() {
   const { roomId } = useParams();
